@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Website</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+color:#333;
+transition:0.4s;
+scroll-behavior:smooth;
+}
+
+
+.dark-btn{
+position:fixed;
+top:20px;
+right:20px;
+padding:10px 20px;
+background:#3498db;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+
+nav{
+display:flex;
+justify-content:center;
+background:#2c3e50;
+padding:15px;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-size:18px;
+}
+
+
+section{
+padding:80px;
+text-align:center;
+}
+
+
+.card{
+background:white;
+padding:30px;
+margin:auto;
+width:50%;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+#contact{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+
+input{
+width:80%;
+padding:10px;
+margin:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+
+button{
+padding:10px 20px;
+border:none;
+background:#3498db;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+
+.dark{
+background:#121212;
+color:white;
+}
+
+.dark .card{
+background:#1e1e1e;
+}
+
+.dark nav{
+background:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button class="dark-btn" onclick="darkMode()">Dark Mode</button>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+
+<section id="home">
+<div class="card">
+<h1>Welcome</h1>
+<p>This is my simple website.</p>
+</div>
+</section>
+
+
+<section id="contact">
+
+<div class="card">
+
+<h2>Contact Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Enter your name"><br>
+
+<input type="email" id="email" placeholder="Enter your email"><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section id="about">
+<div class="card">
+<h2>About</h2>
+<p>This website is made using HTML CSS and JavaScript.</p>
+</div>
+</section>
+
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+function validateForm(){
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+
+if(name=="" || email==""){
+alert("Please fill all fields");
+return false;
+}
+
+alert("Form Submitted Successfully");
+return true;
+
+}
+
+</script>
+
+</body>
+</html>
