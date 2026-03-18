@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Singh - Portfolio</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;line-height:1.5}
+        body{color:#333;background:#f8f9fa}
+        
+        header{position:fixed;top:0;left:0;width:100%;background:#2c3e50;color:#fff;padding:1rem 0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+        nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 1rem}
+        .logo{font-size:1.3rem;font-weight:bold}
+        
+        .nav-links{display:flex;list-style:none;gap:2rem}
+        .nav-links a{color:#fff;text-decoration:none;font-weight:500;padding:0.5rem 0;transition:color 0.3s}
+        .nav-links a:hover{color:#3498db}
+        
+        .menu-btn{display:none;flex-direction:column;width:30px;height:25px;cursor:pointer}
+        .menu-btn span{height:3px;width:100%;background:#fff;margin:3px 0;border-radius:3px;transition:0.3s}
+        
+        .hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;text-align:center;padding:140px 1rem 80px}
+        .hero-content{max-width:600px;margin:0 auto}
+        .hero h1{font-size:2.8rem;margin-bottom:1rem;font-weight:700}
+        .hero p{font-size:1.2rem;margin-bottom:2rem}
+        .btn{display:inline-block;background:#e74c3c;color:#fff;padding:14px 32px;text-decoration:none;border-radius:50px;font-weight:600;font-size:1.1rem;transition:all 0.3s}
+        .btn:hover{background:#c0392b;transform:translateY(-2px)}
+        
+        section{padding:80px 1rem;max-width:1200px;margin:0 auto}
+        h2{text-align:center;font-size:2.5rem;margin-bottom:3rem;color:#2c3e50;font-weight:700}
+        
+        .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+        .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:all 0.4s}
+        .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.15)}
+        .card img{width:100%;height:220px;object-fit:cover}
+        .card-body{padding:2rem}
+        .card h3{font-size:1.4rem;margin-bottom:0.8rem;color:#2c3e50}
+        .card p{color:#666}
+        
+        .contact{text-align:center;max-width:600px;margin:0 auto}
+        .contact-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+        .contact-links a{color:#3498db;font-size:1.2rem;text-decoration:none;padding:1rem;display:flex;align-items:center;gap:0.5rem;transition:all 0.3s}
+        .contact-links a:hover{color:#2980b9;transform:translateY(-2px)}
+        
+        footer{background:#2c3e50;color:#fff;text-align:center;padding:2rem;font-size:0.95rem}
+        
+        @media screen and (max-width: 768px) {
+            .nav-links{display:none !important}
+            .menu-btn{display:flex}
+            .hero h1{font-size:2rem !important;line-height:1.2}
+            .hero p{font-size:1rem}
+            h2{font-size:2rem !important}
+            .hero{padding:120px 1rem 60px !important}
+            section{padding:60px 1rem !important}
+            .projects{grid-template-columns:1fr !important;gap:1.5rem}
+            .card img{height:180px}
+            .contact-links{flex-direction:column;gap:1.5rem}
+            .contact-links a{font-size:1.1rem;padding:0.8rem 0}
+        }
+        
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .projects{grid-template-columns:repeat(2,1fr)}
+            .hero h1{font-size:2.5rem}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Rohan Singh</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        
+        <div class="mobile-menu" id="mobileMenu" style="display:none;position:fixed;top:70px;left:0;width:100%;background:#2c3e50;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+            <ul style="list-style:none;padding:20px;">
+                <li style="margin:15px 0;"><a href="#home" onclick="closeMobileMenu()" style="color:#fff;font-size:1.3rem;text-decoration:none;display:block;padding:15px 25px;border-left:4px solid transparent;">🏠 Home</a></li>
+                <li style="margin:15px 0;"><a href="#about" onclick="closeMobileMenu()" style="color:#fff;font-size:1.3rem;text-decoration:none;display:block;padding:15px 25px;border-left:4px solid transparent;">👨‍💻 About</a></li>
+                <li style="margin:15px 0;"><a href="#projects" onclick="closeMobileMenu()" style="color:#fff;font-size:1.3rem;text-decoration:none;display:block;padding:15px 25px;border-left:4px solid transparent;">💼 Work</a></li>
+                <li style="margin:15px 0;"><a href="#contact" onclick="closeMobileMenu()" style="color:#fff;font-size:1.3rem;text-decoration:none;display:block;padding:15px 25px;border-left:4px solid transparent;">📞 Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Rohan Singh</h1>
+            <p>Full Stack Web Developer</p>
+            <a href="#projects" class="btn">View My Projects</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="text-align:center;font-size:1.1rem;max-width:700px;margin:0 auto;line-height:1.7;color:#555">
+            Passionate web developer with 3+ years experience. I specialize in modern web technologies 
+            and create beautiful, responsive websites that deliver amazing user experiences.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=220&fit=crop" alt="E-commerce">
+                <div class="card-body">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Modern shopping website built with React, Node.js & Stripe integration</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=220&fit=crop" alt="Task Manager">
+                <div class="card-body">
+                    <h3>Task Management App</h3>
+                    <p>Real-time collaborative task manager with drag & drop interface</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=220&fit=crop" alt="Portfolio">
+                <div class="card-body">
+                    <h3>Personal Portfolio</h3>
+                    <p>This responsive portfolio website you're viewing right now</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Let's Work Together</h2>
+        <p style="font-size:1.1rem;margin-bottom:2rem;color:#555">Ready for your next project? Get in touch!</p>
+        <div class="contact-links">
+            <a href="mailto:rohansingh@gmail.com">📧 rohansingh@gmail.com</a>
+            <a href="tel:+918739284747">📱 +91 8739284747</a>
+            <a href="https://www.linkedin.com/in/abhiraj-rajput-31944537a" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com/abhirajrajput666" target="_blank">🐙 GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Rohan Singh | 
+           <a href="https://www.linkedin.com/in/abhiraj-rajput-31944537a" target="_blank" style="color:#3498db;">LinkedIn</a> | 
+           <a href="https://github.com/abhirajrajput666" target="_blank" style="color:#3498db;">GitHub</a></p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        }
+        
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').style.display = 'none';
+        }
+                document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+            }
+        });
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('mobileMenu').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
