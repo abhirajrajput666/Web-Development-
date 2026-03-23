@@ -26,10 +26,6 @@
         .btn{display:inline-block;background:#e74c3c;color:#fff;padding:14px 32px;text-decoration:none;border-radius:50px;font-weight:600;font-size:1.1rem;transition:all 0.3s}
         .btn:hover{background:#c0392b;transform:translateY(-2px)}
         
-        .tts-btn{background:#3498db;color:#fff;border:none;padding:10px 15px;border-radius:50%;cursor:pointer;font-size:1.2rem;transition:all 0.3s;margin-left:1rem}
-        .tts-btn:hover{background:#2980b9;transform:scale(1.1)}
-        .tts-btn.active{background:#e74c3c}
-        
         section{padding:80px 1rem;max-width:1200px;margin:0 auto}
         h2{text-align:center;font-size:2.5rem;margin-bottom:3rem;color:#2c3e50;font-weight:700}
         
@@ -71,10 +67,7 @@
 <body>
     <header>
         <nav>
-            <div style="display:flex;align-items:center;gap:1rem">
-                <div class="logo">Rohan Singh</div>
-                <button class="tts-btn" id="ttsBtn" title="Read aloud">🔊</button>
-            </div>
+            <div class="logo">Rohan Singh</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -159,40 +152,6 @@
     </footer>
 
     <script>
-        let isSpeaking = false;
-        const ttsBtn = document.getElementById('ttsBtn');
-        
-        function getPageText() {
-            const sections = document.querySelectorAll('section');
-            let text = '';
-            sections.forEach(section => {
-                text += section.innerText + ' ';
-            });
-            return text;
-        }
-        
-        function toggleTTS() {
-            if (isSpeaking) {
-                speechSynthesis.cancel();
-                isSpeaking = false;
-                ttsBtn.classList.remove('active');
-            } else {
-                const text = getPageText();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 1;
-                utterance.pitch = 1;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    ttsBtn.classList.remove('active');
-                };
-                speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                ttsBtn.classList.add('active');
-            }
-        }
-        
-        ttsBtn.addEventListener('click', toggleTTS);
-        
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu.style.display === 'block') {
